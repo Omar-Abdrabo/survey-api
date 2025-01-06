@@ -53,8 +53,8 @@ class AuthController extends Controller
     {
         /** @var \App\Models\User $user */
         $user = Auth::user();
-        // Revoke the token that was used to authenticate the current request...
-        $user->currentAccessToken()->delete();
+        // Revoke the all tokens for authenticated user...
+        $user->Tokens()->delete();
 
         return response([
             'success' => true
